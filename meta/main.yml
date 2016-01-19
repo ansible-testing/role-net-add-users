@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Chris Houseknecht
+  description: Add users to a network device via Ansible core network modules.
+  company: Red Hat | Ansible
+  
+  license: MIT
+  
+  min_ansible_version: 2.0
+
+  #github_branch:
+  
+  platforms:
+  - name: EL
+    versions:
+    - all
+  
+  galaxy_tags:
+    - ansible
+    - network
+    - nxos
+    - users
+
+dependencies: []

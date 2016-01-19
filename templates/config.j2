@@ -1,0 +1,5 @@
+{% for user in net_users %}
+{% for role in user['roles'] %}
+username {{ user['username'] }} {% if loop.index == 1 and user['password'] is defined %}{{ user['password'] }} {% endif %}role {{ role }}
+{% endfor %}
+{% endfor %}

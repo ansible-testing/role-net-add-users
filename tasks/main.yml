@@ -1,0 +1,68 @@
+---
+  - block:
+        - name: Add user to nxos device via delegate_to host with password
+          nxos_config:
+              src: config.j2
+              use_ssl: "{{ netuser_use_ssl }}"
+              username: "{{ netuser_username }}"
+              password: "{{ netuser_password }}"
+              transport: "{{ netuser_transport }}"
+          register: output
+          delegate_to: "{{ netuser_delegate_to }}"
+          connection: local
+
+        - debug: var=output
+
+    when: netuser_delegate_to is defined and netuser_password is defined
+    tags:
+        - nxos
+
+  - block: 
+        - name: Add user to nxos device via delegate_to host no password
+          nxos_config:
+              src: config.j2
+              use_ssl: "{{ netuser_use_ssl }}"
+              username: "{{ netuser_username }}"
+              transport: "{{ netuser_transport }}"
+          register: output
+          delegate_to: "{{ netuser_delegate_to }}"
+          connection: local
+
+        - debug: var=output
+
+    when: netuser_delegate_to is defined and netuser_password is not defined
+    tags:
+        - nxos
+
+  - block:
+        - name: Add user to nxos device directly with password
+          nxos_config:
+              src: config.j2
+              use_ssl: "{{ netuser_use_ssl }}"
+              username: "{{ netuser_username }}"
+              password: "{{ netuser_password }}"
+              transport: "{{ netuser_transport }}"
+          register: output
+          connection: local
+
+        - debug: var=output
+
+    when: netuser_delegate_to is not defined and netuser_password is defined
+    tags:
+        - nxos
+
+  - block:
+        - name: Add user to nxos device directly no password
+          nxos_config:
+              src: config.j2
+              use_ssl: "{{ netuser_use_ssl }}"
+              username: "{{ netuser_username }}"
+              transport: "{{ netuser_transport }}"
+          register: output
+          connection: local
+
+        - debug: var=output
+
+    when: netuser_delegate_to is not defined and netuser_password is not defined
+    tags:
+        - nxos
