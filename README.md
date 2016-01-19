@@ -72,4 +72,5 @@ Author Information
 ------------------
 
 Chris Houseknecht @chouseknecht
+
 RedHat | Ansible
