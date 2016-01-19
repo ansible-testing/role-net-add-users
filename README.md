@@ -3,6 +3,12 @@ Net-Add-Users
 
 Use Ansible core network modules to add users to a network device. 
 
+Install:
+
+```
+ansible-galaxy -s https://galaxy-qa.ansible.com install ansible-testing.net-add-users
+```
+
 Requirements
 ------------
 
@@ -73,4 +79,4 @@ Author Information
 
 Chris Houseknecht @chouseknecht
 
-RedHat | Ansible
+[RedHat | Ansible](http://www.ansible.com)
