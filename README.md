@@ -17,27 +17,34 @@ Role Variables
 --------------
 
 netuser_use_ssl:
-    For non-SSH connections specifies whether or not to use SSL. Defaults to False.
+
+> For non-SSH connections specifies whether or not to use SSL. Defaults to False.
 
 netuser_username: 
-    Account being created. 
+
+> Account being created. 
 
 netuser_password:
-    Password for the account being created.
+
+> Password for the account being created.
 
 netuser_transport:
-    Supported connection transports: cli, nxapi
+
+> Supported connection transports: cli, nxapi
 
 netuser_delegate_to:
-    Name of a host to delegate to. See [Ansible Delegation](http://docs.ansible.com/ansible/playbooks_delegation.html#delegation).   
+
+> Name of a host to delegate to. See [Ansible Delegation](http://docs.ansible.com/ansible/playbooks_delegation.html#delegation).   
 
 netuser_users:
-    List of users to be created. Each item will be an object with attributes: username, password, roles. The roles attribute is a list of role names.
+
+> List of users to be created. Each item will be an object with attributes: username, password, roles. The roles attribute is a list of role names.
 
 
 Example Playbook
 ----------------
 
+```
 - name: Create users
   hosts: all
   connection: local
@@ -54,6 +61,7 @@ Example Playbook
           netuser_tranport: cli,
           netuser_delegate_to: "{{ delegate_to_host }}"
         }
+```
 
 License
 -------
