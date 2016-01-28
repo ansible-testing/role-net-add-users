@@ -3,10 +3,7 @@
         - name: Add user to nxos device via delegate_to host with password
           nxos_config:
               src: config.j2
-              use_ssl: "{{ netuser_use_ssl }}"
-              username: "{{ netuser_username }}"
-              password: "{{ netuser_password }}"
-              transport: "{{ netuser_transport }}"
+              provider: "{{ provider }}"
           register: output
           delegate_to: "{{ netuser_delegate_to }}"
           connection: local
@@ -21,9 +18,7 @@
         - name: Add user to nxos device via delegate_to host no password
           nxos_config:
               src: config.j2
-              use_ssl: "{{ netuser_use_ssl }}"
-              username: "{{ netuser_username }}"
-              transport: "{{ netuser_transport }}"
+              provider: "{{ provider }}"
           register: output
           delegate_to: "{{ netuser_delegate_to }}"
           connection: local
@@ -38,10 +33,7 @@
         - name: Add user to nxos device directly with password
           nxos_config:
               src: config.j2
-              use_ssl: "{{ netuser_use_ssl }}"
-              username: "{{ netuser_username }}"
-              password: "{{ netuser_password }}"
-              transport: "{{ netuser_transport }}"
+              provider: "{{ provider }}"
           register: output
           connection: local
 
@@ -55,9 +47,7 @@
         - name: Add user to nxos device directly no password
           nxos_config:
               src: config.j2
-              use_ssl: "{{ netuser_use_ssl }}"
-              username: "{{ netuser_username }}"
-              transport: "{{ netuser_transport }}"
+              provider: "{{ provider }}"
           register: output
           connection: local
 

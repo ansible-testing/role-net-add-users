@@ -1,8 +1,16 @@
 ---
 # defaults
-netuser_use_ssl: yes
+
 netuser_username: ''
 netuser_password: ''
 netuser_transport: cli
+netuser_use_ssl: yes
 netuser_delegate_to: ''
 netuser_users: []
+
+provider:
+    username: "{{ netuser_username }}"
+    password: "{{ netuser_password }}"
+    host: "{{ inventory_hostname }}"
+    transport: "{{ netuser_transport }}"
+    use_ssl: "{{ netuser_use_ssl }}"
